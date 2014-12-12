@@ -1,14 +1,14 @@
-#N canvas 3 54 429 243 10;
-#X obj 123 10 notein;
-#X floatatom 123 56 5 0 0 0 - - -;
-#X text 160 55 <- current note;
-#X obj 123 80 s note;
-#X obj 5 30 loadbang;
-#X msg 5 54 48;
-#X obj 5 77 s min;
-#X obj 66 31 loadbang;
-#X obj 66 78 s min;
-#X msg 66 56 72;
+#N canvas 3 55 429 331 10;
+#X obj 186 11 notein;
+#X floatatom 186 57 5 0 0 0 - - -;
+#X text 223 56 <- current note;
+#X obj 186 81 s note;
+#X obj 68 31 loadbang;
+#X msg 68 55 48;
+#X obj 68 78 s min;
+#X obj 129 32 loadbang;
+#X obj 129 79 s min;
+#X msg 129 57 72;
 #N canvas 663 369 450 300 cook-midi 0;
 #X obj 18 82 maxlib/scale 48 72 0 1;
 #X obj 18 9 r note;
@@ -21,27 +21,27 @@
 #X connect 2 0 0 1;
 #X connect 3 0 0 2;
 #X connect 4 0 5 0;
-#X restore 297 15 pd cook-midi;
+#X restore 330 17 pd cook-midi;
 #X text 6 7 Settings;
-#X obj 4 125 s on;
-#X obj 4 102 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 6 137 s on;
+#X obj 6 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
-#X obj 7 186 s mode;
-#X obj 7 160 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 9 198 s mode;
+#X obj 9 172 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
-#X text 24 100 <-- Sound on or off;
-#X text 28 157 <-- key triggering mode;
-#X text 56 179 on - lifting keys cuts the sound;
-#X text 56 199 off - sound is constant;
-#N canvas 528 151 774 577 audio 1;
+#X text 26 112 <-- Sound on or off;
+#X text 30 169 <-- key triggering mode;
+#X text 58 191 on - lifting keys cuts the sound;
+#X text 58 211 off - sound is constant;
+#N canvas 528 152 774 577 audio 0;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array sample 150951 float 2;
 #X coords 0 1 150951 -1 200 140 1;
 #X restore 462 36 graph;
-#X obj 467 270 soundfiler;
+#X obj 467 356 soundfiler;
 #X msg 467 239 read -resize ./beat.wav sample;
 #X obj 38 188 phasor~;
-#X obj 467 298 s file-loaded;
+#X obj 467 384 s file-loaded;
 #X obj 467 212 loadbang;
 #X obj 39 259 *~;
 #X obj 54 215 r file-loaded;
@@ -59,7 +59,7 @@
 #X obj 53 389 r on;
 #X obj 77 161 spigot;
 #X obj 110 141 r vel;
-#N canvas 748 428 450 300 mode 1;
+#N canvas 748 429 450 300 mode 0;
 #X obj 24 19 inlet~;
 #X obj 24 266 outlet~;
 #X obj 25 244 *~;
@@ -116,6 +116,9 @@
 #X connect 23 3 12 1;
 #X connect 25 0 5 1;
 #X restore 38 346 pd mode;
+#X msg 488 329 read -resize \$1 sample;
+#X obj 488 285 r newfile;
+#X obj 488 307 openpanel;
 #X connect 1 0 4 0;
 #X connect 2 0 1 0;
 #X connect 3 0 6 0;
@@ -136,8 +139,14 @@
 #X connect 19 0 3 1;
 #X connect 20 0 19 1;
 #X connect 21 0 15 0;
-#X restore 297 36 pd audio;
-#X obj 139 32 s vel;
+#X connect 22 0 1 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X restore 330 38 pd audio;
+#X obj 202 33 s vel;
+#X obj 6 78 s newfile;
+#X obj 6 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X connect 0 0 1 0;
 #X connect 0 1 21 0;
 #X connect 1 0 3 0;
@@ -147,3 +156,4 @@
 #X connect 9 0 8 0;
 #X connect 13 0 12 0;
 #X connect 15 0 14 0;
+#X connect 23 0 22 0;
