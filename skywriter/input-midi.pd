@@ -1,17 +1,17 @@
-#N canvas 165 171 712 342 10;
-#X obj 163 205 vsl 50 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2450 1;
-#X obj 218 205 vsl 50 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2450 1;
-#X obj 106 203 hsl 50 50 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 2488 1;
+#N canvas 165 172 712 342 10;
+#X obj 163 219 vsl 50 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3139 1;
+#X obj 218 219 vsl 50 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4862 1;
+#X obj 106 217 hsl 50 50 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
 #X obj 103 286 s x;
 #X obj 163 286 s y;
 #X obj 218 286 s z;
-#X obj 271 203 bng 50 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 271 217 bng 50 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 271 285 s tap;
-#X obj 325 203 tgl 50 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 325 217 tgl 50 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 325 285 s touch;
 #X floatatom 93 64 5 0 0 0 - - -;
@@ -33,11 +33,11 @@
 #X msg 402 164 0;
 #X msg 433 165 1;
 #X obj 402 142 sel 0;
-#X text 285 218 tap;
-#X text 334 219 touch;
-#X text 125 218 x;
-#X text 182 215 y;
-#X text 237 215 z;
+#X text 285 232 tap;
+#X text 334 233 touch;
+#X text 125 232 x;
+#X text 182 229 y;
+#X text 237 229 z;
 #X connect 0 0 4 0;
 #X connect 1 0 5 0;
 #X connect 2 0 3 0;
@@ -64,4 +64,4 @@
 #X connect 27 0 8 0;
 #X connect 28 0 26 0;
 #X connect 28 1 27 0;
-#X coords 0 -1 1 1 300 60 1 100 200;
+#X coords 0 -1 1 1 300 75 1 100 200;
